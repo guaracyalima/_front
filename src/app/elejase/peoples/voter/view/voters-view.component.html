@@ -1,0 +1,129 @@
+<div class="col-lg-12">
+	<div class="client card">
+		<h1>Painel do eleitor</h1>
+		<div class="card-close">
+			<div class="dropdown">
+				<button
+						type="button"
+						id="closeCard"
+						data-toggle="dropdown"
+						aria-haspopup="true"
+						aria-expanded="false"
+						class="dropdown-toggle">
+					<i class="fa fa-ellipsis-v"></i>
+				</button>
+				<div aria-labelledby="closeCard" class="dropdown-menu has-shadow">
+					<a routerLink="/politics/" class="dropdown-item remove">
+						<i class="fa fa-times"></i>
+						Fechar
+					</a>
+					<a routerLink="/politics/{{politic.id}}/edit" class="dropdown-item edit">
+						<i class="fa fa-gear"></i>
+						Editar
+					</a>
+				</div>
+			</div>
+		</div>
+		<div class="card-body text-center">
+			<div class="client-avatar">
+				<img src="https://s3-sa-east-1.amazonaws.com/eleja-se.medias3/profile/default.png" alt="..." class="img-fluid rounded-circle">
+				<div class="status bg-green"></div>
+			</div>
+			<div class="client-title">
+				<h3>{{politic.name}} {{politic.last_name}}</h3>
+				<span>
+					Partido: {{politic.last}}
+				</span>
+				<a href="#">Follow</a>
+			</div>
+			<div class="client-info">
+				<div class="row">
+					<div class="col-md-3">
+						<strong>Endereço</strong>
+						<hr>
+						<div class="text-left">
+							<small>
+								<b>Rua:</b> {{politic.stret}}
+							</small>
+
+							<br>
+
+							<small>
+								<b>Bairro</b> {{politic.neighborhood}},
+							</small>
+
+							<br>
+
+							<small>
+								<b>CEP:</b> {{politic.cep}}
+							</small>
+
+							<br>
+
+							<small>
+								<b>Cidade: </b>{{politic.city}} - {{politic.uf}}, {{politic.country}}
+							</small>
+						</div>
+					</div>
+					<div class="col-md-3">
+						<strong>Dados pessoais</strong>
+						<hr>
+						<div class="text-left">
+							<small>
+								<b>CPF:</b> {{politic.cpf}}
+							</small>
+							<br>
+							<small>
+								<b>RG:</b> {{politic.rg}}
+							</small>
+						</div>
+
+					</div>
+					<div class="col-md-3">
+						<strong>Dados eleitorais</strong>
+						<hr>
+						<div class="text-left">
+							<small>
+								<b>Titulo de eleitor:</b>	 {{politic.voter_title}}
+							</small>
+							<br>
+							<small>
+								<b>Zona:</b> {{politic.zone_id}}
+							</small>
+							<br>
+							<small>
+								<b>Seção:</b> {{politic.session_id}}
+							</small>
+						</div>
+					</div>
+					<div class="col-md-3">
+						<strong>Plano</strong>
+
+						<hr>
+
+						<small>
+							<b>Plano: </b>{{politic.plan_id.name}}
+						</small>
+						<br>
+
+						<small>
+							<b>Preço: </b>{{politic.plan_id.price}}
+						</small>
+						<br>
+
+						<small>
+							<b>SMS: </b>{{politic.plan_id.sms_quantity}}
+						</small>
+						<br>
+
+						<small>
+							<b>E-mail: </b>{{politic.plan_id.emails_quantity}}
+						</small>
+						<br>
+					</div>
+				</div>
+			</div>
+			<div class="client-social d-flex justify-content-between"><a href="#" target="_blank"><i class="fa fa-facebook"></i></a><a href="#" target="_blank"><i class="fa fa-twitter"></i></a><a href="#" target="_blank"><i class="fa fa-google-plus"></i></a><a href="#" target="_blank"><i class="fa fa-instagram"></i></a><a href="#" target="_blank"><i class="fa fa-linkedin"></i></a></div>
+		</div>
+	</div>
+</div>

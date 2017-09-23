@@ -1,0 +1,99 @@
+<div class="col-lg-12">
+  <div class="card">
+    <div class="card-close">
+      <div class="dropdown">
+        <button type="button" id="closeCard" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="dropdown-toggle"><i class="fa fa-ellipsis-v"></i></button>
+        <div aria-labelledby="closeCard" class="dropdown-menu has-shadow"><a href="#" class="dropdown-item remove"> <i class="fa fa-times"></i>Close</a><a href="#" class="dropdown-item edit"> <i class="fa fa-gear"></i>Edit</a></div>
+      </div>
+    </div>
+    <div class="card-header d-flex align-items-center">
+      <h3 class="h4">
+        {{title}}
+      </h3>
+    </div>
+    <div class="card-body">
+        <form role="form" (submit)="save()">
+        <div class="form-body">
+
+          <div class="row">
+            <div class="col col-md-6">
+              <div class="form-group">
+                <label>Nome</label>
+                <div class="input-group">
+                <!--<span class="input-group-addon input-circle-left">-->
+                  <!--<i class="fa fa-map-marker" aria-hidden="true"></i>-->
+                <!--</span>-->
+                  <input type="text" [(ngModel)]="plan.name" name="name" class="form-control input-circle-right" placeholder="Ex: Plano PRO">
+                </div>
+              </div>
+              <div class="form-group">
+                <label>Maximo de eleitores</label>
+                <div class="input-group">
+                <!--<span class="input-group-addon input-circle-left">-->
+                  <!--<i class="fa fa-user" aria-hidden="true"></i>-->
+                <!--</span>-->
+                  <input type="text"  name="max_electors"  [(ngModel)]="plan.max_electors" class="form-control input-circle-right" placeholder="00">
+                </div>
+              </div>
+              <div class="form-group">
+                <label>Maximo de usuarios</label>
+                <div class="input-group">
+                <!--<span class="input-group-addon input-circle-left">-->
+                  <!--<i class="fa fa-user" aria-hidden="true"></i>-->
+                <!--</span>-->
+                  <input type="text" [(ngModel)]="plan.max_users" name="max_users" class="form-control input-circle-right" placeholder="0">
+                </div>
+              </div>
+              <div class="form-group">
+                <label>Maximo de SMS</label>
+                <div class="input-group">
+                <!--<span class="input-group-addon input-circle-left">-->
+                  <!--<i class="fa fa-envelope"></i>-->
+                <!--</span>-->
+                  <input type="text" [(ngModel)]="plan.sms_quantity" name="sms_quantity" class="form-control input-circle-right" placeholder="00">
+                </div>
+              </div>
+            </div>
+
+            <div class="col col-md-6">
+              <div class="form-group">
+                <label>Quantidade de E-mail marketing </label>
+                <div class="input-group">
+                <!--<span class="input-group-addon input-circle-left">-->
+                  <!--<i class="fa fa-phone" aria-hidden="true"></i>-->
+                <!--</span>-->
+                  <input type="text" [(ngModel)]="plan.emails_quantity" name="emails_quantity" class="form-control input-circle-right" placeholder="(00) 0 0000-0000">
+                </div>
+              </div>
+              <div class="form-group">
+                <label>Preço</label>
+                <div class="input-group">
+                <!--<span class="input-group-addon input-circle-left">-->
+                  <!--<i class="fa fa-map" aria-hidden="true"></i>-->
+                <!--</span>-->
+                  <input type="text" [(ngModel)]="plan.price" name="price" class="form-control input-circle-right" placeholder="R$ 00,00">
+                </div>
+              </div>
+              <div class="form-group">
+                <label>Frequencia de renovaçao</label>
+                <div class="input-group">
+                <!--<span class="input-group-addon input-circle-left">-->
+                  <!--<i class="fa fa-map-marker" aria-hidden="true"></i>-->
+                <!--</span>-->
+                  <input type="text" [(ngModel)]="plan.renewal_frequency" name="renewal_frequency" class="form-control input-circle-right" placeholder="00">
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+        </div>
+        <div class="form-actions">
+          <button type="submit" class="btn btn-info">Cadastrar</button>
+          <button type="reset" class="btn btn-danger">Limpar</button>
+        </div>
+      </form>
+
+    </div>
+  </div>
+</div>

@@ -1,0 +1,81 @@
+<div class="col-lg-12">
+    <div class="card">
+        <div class="card-close">
+            <div class="dropdown">
+                <button type="button" id="closeCard" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="dropdown-toggle"><i class="fa fa-ellipsis-v"></i></button>
+                <div aria-labelledby="closeCard" class="dropdown-menu has-shadow"><a href="#" class="dropdown-item remove"> <i class="fa fa-times"></i>Close</a><a href="#" class="dropdown-item edit"> <i class="fa fa-gear"></i>Edit</a></div>
+            </div>
+        </div>
+        <div class="card-header d-flex align-items-center">
+            <h3 class="h4">
+                {{sectionTitle}}
+            </h3>
+        </div>
+        <div class="card-body">
+            <p>
+
+            </p>
+
+            <form role="form"
+                  (submit)="save()">
+                <div class="form-body">
+
+                    <div class="col col-md-12">
+                        <div class="form-group">
+                            <label>Nome</label>
+                            <div class="input-group">
+              <span class="input-group-addon input-circle-left">
+                <i class="fa fa-user" aria-hidden="true"></i>
+              </span>
+                                <input type="text" name="nickname"
+                                       [(ngModel)]="voter.nickname" class="input-material" placeholder="Nome completo">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label>Genero</label>
+                            <div class="input-group">
+              <span class="input-group-addon input-circle-left">
+                <i class="fa fa-user" aria-hidden="true"></i>
+              </span>
+                                <input type="text"
+                                       [(ngModel)]="voter.genre" name="genre" class="form-control
+              input-circle-right">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label>Nascimento</label>
+                            <div class="input-group">
+              <span class="input-group-addon input-circle-left">
+                <i class="fa fa-envelope"></i>
+              </span>
+                                <input type="date"
+                                       [(ngModel)]="voter.birth" name="birth" class="form-control input-circle-right">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col col-md-6">
+                        <div class="form-group">
+                            <label>Observações</label>
+                            <div class="input-group">
+              <span class="input-group-addon input-circle-left">
+                <i class="fa fa-phone" aria-hidden="true"></i>
+              </span>
+                                <textarea name="observations" [(ngModel)]="voter.observations" id="" cols="30" rows="10"></textarea>
+                                <!--<input type="text"-->
+                                        <!--name="observations" class="form-control input-circle-right"-->
+                                       <!--placeholder="(00) 0 0000-0000">-->
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="form-actions">
+                    <button type="submit" class="btn blue">Cadastrar</button>
+                    <button type="reset" class="btn red">Limpar</button>
+                </div>
+            </form>
+
+        </div>
+    </div>
+</div>

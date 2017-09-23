@@ -1,0 +1,79 @@
+<div class="col-lg-12">
+  <div class="card">
+    <div class="card-close">
+      <div class="dropdown">
+        <button type="button" id="closeCard" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
+                class="dropdown-toggle">
+          <i class="fa fa-ellipsis-v"></i>
+        </button>
+
+        <div aria-labelledby="closeCard" class="dropdown-menu has-shadow">
+          <a href="#"  class="dropdown-item remove">
+            <i class="fa fa-times"></i>
+            Fechar
+          </a>
+          <a href="#" class="dropdown-item edit">
+            <i class="fa fa-gear"></i>
+            Editar
+          </a>
+        </div>
+      </div>
+    </div>
+    <div class="card-header d-flex align-items-center">
+      <h3 class="h4">
+        {{title}}
+      </h3>
+    </div>
+    <div class="card-body">
+
+      <form #formPolitic="ngForm" role="form" (submit)="save()">
+        <div class="form-body">
+
+          <div class="row">
+            <div class="col-md-12">
+              <div class="card">
+                <div id="accordion_personals_data" data-children=".personalData">
+                  <div class="personalData">
+                    <div class="card-header bg-info text-center">
+                      <a data-toggle="collapse" data-parent="#accordion_access"
+                         href="#accordion_personal_data"
+                         aria-expanded="true" aria-controls="accordion_personal_data">
+                        Dados pessoais
+                      </a>
+                    </div>
+                    <div id="accordion_personal_data" class="collapse show" role="tabpanel">
+                      <div class="card-body">
+                        <div class="row">
+
+                          <div class="col-md-12">
+                            <div class="group">
+                              <input
+                                      type="text"
+                                      required
+                                      #politic_name="ngModel"
+                                      [(ngModel)]="education.description"
+                                      name="politic_name">
+                              <span class="highlight"></span>
+                              <span class="bar"></span>
+                              <label>Nivel de instrução</label>
+                            </div>
+                          </div>
+
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="form-actions">
+          <button type="submit" class="btn blue" [disabled]="formPolitic.form.invalid">Cadastrar</button>
+          <button type="reset" class="btn red">Limpar</button>
+        </div>
+      </form>
+
+    </div>
+  </div>
+</div>

@@ -1,0 +1,87 @@
+<header class="page-header">
+  <div class="container-fluid">
+    <h2 class="no-margin-bottom">{{title}}</h2>
+    <div class="row">
+      <div class="col-md-2">
+            <span>
+            <a routerLink="/plans/new" class="btn btn-primary">
+                        <i class="fa fa-plus"></i>
+                        Adicionar
+                    </a>
+        </span>
+      </div>
+      <div class="col-md-5">
+        <input type="text" class="form-control" placeholder="Buscar por nome...">
+      </div>
+      <div class="col-md-3">
+        <select name="" id="" class="form-control">
+          <option value="">Filtros</option>
+          <option value="">usuarios</option>
+          <option value="">sms</option>
+          <option value="">email</option>
+          <option value="">preço</option>
+        </select>
+      </div>
+
+      <div class="col-md-2">
+        <div class="dropdown">
+          <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Exportar
+          </button>
+          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+            <a class="dropdown-item" href="#">PDF</a>
+            <a class="dropdown-item" href="#">Excell</a>
+            <a class="dropdown-item" href="#">CSV</a>
+            <a class="dropdown-item" href="#">Imagem</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+
+<section class="tables">
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-4" *ngFor="let plan of plans.data">
+      <div class="card">
+        <div class="card-block">
+          <h4 class="card-title text-center">
+            <a routerLink="/plans/{{plan.id}}">{{plan.name}}</a>
+          </h4>
+        </div>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item">
+            Usuarios: {{plan.max_users}}
+          </li>
+          <li class="list-group-item">
+            SMS: {{plan.sms_quantity}}
+          </li>
+          <li class="list-group-item">
+            E-mails Marketing: {{plan.emails_quantity}}
+          </li>
+          <li class="list-group-item">
+            Plano: {{plan.plan_id}}
+          </li>
+        </ul>
+        <div class="card-block">
+          <a routerLink="/plans/{{plan.id}}/edit" class="btn btn-primary">Editar</a>
+          <a
+                  (click)="delete(plan.id)" class="card-link">Excluir
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <app-app-paginator
+          (onChangePage)="pageChanged($event)"
+          [total]="plans.total"
+          [activePage]="plans.current_page"
+          [totalPage]="plans.last_page"
+          [resource]="'plans'">
+  </app-app-paginator>
+</div>
+</section>

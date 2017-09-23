@@ -1,0 +1,80 @@
+<header class="page-header">
+  <div class="container-fluid">
+
+    <h2 class="no-margin-bottom text-center">
+      {{title}}
+    </h2>
+
+    <span>
+      <a routerLink="/users/new" class="btn btn-primary">
+        <i class="fa fa-plus"></i>
+        Adicionar
+      </a>
+    </span>
+    <input type="text" class="form-control" placeholder="Buscar por nome..." #userName (keyup)="0">
+  </div>
+</header>
+<section class="tables">
+  <div class="container-fluid">
+    <div class="row">
+      <table class="table table-striped table-bordered table-hover" id="sample_1">
+        <thead class="thead-inverse">
+        <tr>
+          <th>
+            Foto
+          </th>
+          <th>
+            Nome
+          </th>
+          <th>
+            Sobrenome
+          </th>
+          <th>
+            Email
+          </th>
+          <th>
+            Tipo
+          </th>
+          <th>
+            Ações
+          </th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let user of users.data | userPipe :userName.value" class="odd gradeX">
+          <td>
+            <img class="card-img-top" src="https://s3-sa-east-1.amazonaws.com/eleja-se.medias3/profile/default.png" alt="Card image cap" width="70" height="70">
+          </td>
+          <td>
+            <a routerLink="/users/{{user.id}}">{{user.name}}</a>
+          </td>
+          <td>
+            {{user.last_name}}
+          </td>
+          <td>
+            {{user.email}}
+          </td>
+          <th>
+            <a routerLink="/users/{{user.id}}/edit" class="btn btn-circle btn-info">
+              <i class="fa fa-pencil"></i>
+              Editar
+            </a>
+            <a (click)="delete(p.id)" class="btn btn-circle red-sunglo btn-danger">
+              <i class="fa fa-trash-o" aria-hidden="true"></i>
+              Excluir
+            </a>
+          </th>
+        </tr>
+        </tbody>
+      </table>
+
+      <app-app-paginator
+              (onChangePage)="pageChanged($event)"
+              [total]="users.total"
+              [activePage]="users.current_page"
+              [totalPage]="users.last_page"
+              [resource]="'users'">
+      </app-app-paginator>
+  </div>
+</div>
+</section>

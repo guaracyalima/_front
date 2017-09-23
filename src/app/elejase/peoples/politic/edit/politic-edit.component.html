@@ -1,0 +1,386 @@
+<div class="col-lg-12">
+  <div class="card">
+
+    <div class="card-header d-flex align-items-center">
+      <h3 class="h4">
+        {{title}}
+      </h3>
+    </div>
+    <div class="card-body">
+
+      <form #formPolitic="ngForm" role="form" (submit)="save(politic.id)">
+        <div class="form-body">
+
+          <div class="row">
+            <div class="col-md-12">
+              <div class="card">
+                <div id="accordion_personals_data" data-children=".personalData">
+                  <div class="personalData">
+                    <div class="card-header bg-info text-center">
+                      <a data-toggle="collapse" data-parent="#accordion_access"
+                         href="#accordion_personal_data"
+                         aria-expanded="true" aria-controls="accordion_personal_data">
+                        Dados pessoais
+                      </a>
+                    </div>
+                    <div id="accordion_personal_data" class="collapse show" role="tabpanel">
+                      <div class="card-body">
+                        <div class="row">
+
+
+                          <div class="col-md-4">
+                            <div class="group">
+                              <input
+                                      type="text"
+                                      required
+                                      #politic_name="ngModel"
+                                      [(ngModel)]="politic.politic_name"
+                                      name="politic_name"
+                                      [value]="politic.politic_name">
+                              <span class="highlight"></span>
+                              <span class="bar"></span>
+                              <label>Nome</label>
+
+                              <!--<span *ngIf="politic_name.invalid" class="alert-danger">-->
+                              <!--Nome do politico é obrigatorio-->
+                              <!--</span>-->
+                            </div>
+                          </div>
+
+
+                          <div class="col-md-4">
+                            <div class="group">
+                              <input
+                                      type="text"
+                                      [(ngModel)]="politic.title"
+                                      name="title"
+                                      [value]="politic.title">
+                              <span class="highlight"></span>
+                              <span class="bar"></span>
+                              <label>Titulação</label>
+                            </div>
+                          </div>
+
+                          <div class="col-md-4">
+                            <div class="group">
+                              <input
+                                      type="text"
+                                      [(ngModel)]="politic.cpf"
+                                      name="cpf" [value]="politic.cpf">
+                              <span class="highlight"></span>
+                              <span class="bar"></span>
+                              <label>CPF</label>
+                            </div>
+                          </div>
+                        </div>
+
+                        <div class="row">
+                          <div class="col-md-4">
+                            <div class="group">
+                              <input
+                                      type="text"
+                                      [(ngModel)]="politic.rg"
+                                      name="rg"
+                                      appMask="(99) 9 9999-9999"
+                                      [value]="politic.rg">
+                              <span class="highlight"></span>
+                              <span class="bar"></span>
+                              <label>RG</label>
+                            </div>
+                          </div>
+
+                          <div class="col-md-4">
+                            <div class="group">
+                              <input type="text"
+                                     [(ngModel)]="politic.voter_title"
+                                     name="voter_title"
+                                     [value]="politic.voter_title">
+                              <span class="highlight"></span>
+                              <span class="bar"></span>
+                              <label>Titulo de eleitor</label>
+                            </div>
+                          </div>
+
+                          <div class="col-md-4">
+                            <div class="group">
+                              <input
+                                      type="text"
+                                      [(ngModel)]="politic.zone_id"
+                                      name="zone_id"
+                                      [value]="politic.zone_id">
+                              <span class="highlight"></span>
+                              <span class="bar"></span>
+                              <label>Zona Eleitoral</label>
+                            </div>
+                          </div>
+                        </div>
+
+                        <div class="row">
+
+                          <div class="col-md-4">
+                            <div class="group">
+                              <input
+                                      type="text"
+                                      [(ngModel)]="politic.session_id"
+                                      name="session_id"
+                                      [value]="politic.session_id">
+                              <span class="highlight"></span>
+                              <span class="bar"></span>
+                              <label>Seção eleitoral</label>
+                            </div>
+                          </div>
+
+                          <div class="col-md-4">
+                            <div class="input-group">
+                              <input
+                                      type="text"
+                                      [(ngModel)]="politic.broken_id"
+                                      name="broken_id"
+                                      [value]="politic.broken_id">
+                              <span class="highlight"></span>
+                              <span class="bar"></span>
+                              <label>Partido Politico</label>
+                            </div>
+                          </div>
+
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="card">
+            <div id="accordion_access" data-children=".access">
+              <div class="access">
+                <div class="card-header bg-info text-center">
+                  <a data-toggle="collapse" data-parent="#accordion_access"
+                     href="#accordion_access_item"
+                     aria-expanded="true" aria-controls="accordion_access_item">
+                    Acesso ao sistema
+                  </a>
+                </div>
+                <div id="accordion_access_item" class="collapse show" role="tabpanel">
+                  <div class="card-body">
+                    <div class="row">
+                      <div class="col-md-6">
+                        <label>Usuario</label>
+                        <div class="group">
+                          <select name="user_id" [(ngModel)]="politic.user_id"
+                                  class="form-control input-material"
+                                  (ngModelChange)="politic.user_id">
+                            <option *ngFor="let us of user" [value]="us.id"> {{us.nome}}
+                            </option>
+                          </select>
+                        </div>
+                      </div>
+
+                      <div class="col-md-6">
+                        <label>Plano</label>
+                        <div class="group">
+                          <select name="plan_id"
+                                  [(ngModel)]="politic.plan_id"
+                                  class="form-control input-material"
+                                  (ngModelChange)="politic.plan_id">
+                            <option *ngFor="let plan of plans" [value]="plan.id">
+                              {{plan.nome}}
+                            </option>
+                          </select>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div> <!-- card end-->
+          <div class="row">
+            <div class="col-md-12">
+              <div class="card">
+                <div id="accordion_address" data-children=".addressData">
+                  <div class="addressData">
+                    <div class="card-header bg-info text-center">
+                      <a data-toggle="collapse" data-parent="#accordion_access"
+                         href="#accordion_address_form"
+                         aria-expanded="true" aria-controls="accordion_address_form">
+                        Endereço do candidato
+                      </a>
+                    </div>
+                    <div id="accordion_address_form" class="collapse show" role="tabpanel">
+                      <div class="card-body">
+                        <div class="row">
+
+                          <div class="col-md-4">
+                            <div class="group">
+                              <input type="text"
+                                     [(ngModel)]="politic.address"
+                                     name="address"
+                                     [value]="politic.address">
+                              <span class="highlight"></span>
+                              <span class="bar"></span>
+                              <label>Endereço</label>
+                            </div>
+                          </div>
+
+
+                          <div class="col-md-4">
+                            <div class="group">
+                              <input type="text"
+                                     [(ngModel)]="politic.stret"
+                                     name="stret"
+                                     [value]="politic.stret">
+                              <span class="highlight"></span>
+                              <span class="bar"></span>
+                              <label>Rua</label>
+                            </div>
+                          </div>
+
+                          <div class="col-md-4">
+                            <div class="group">
+                              <input type="text"
+                                     [(ngModel)]="politic.neighborhood"
+                                     name="neighborhood"
+                                     [value]="politic.neighborhood">
+                              <span class="highlight"></span>
+                              <span class="bar"></span>
+                              <label>Bairro</label>
+                            </div>
+                          </div>
+                        </div>
+
+                        <div class="row">
+                          <div class="col-md-4">
+                            <div class="group">
+                              <input type="text"
+                                     [(ngModel)]="politic.cep"
+                                     name="cep" >
+                              <span class="highlight"></span>
+                              <span class="bar"></span>
+                              <label>CEP</label>
+                            </div>
+                          </div>
+
+                          <div class="col-md-4">
+                            <div class="group">
+                              <input type="text"
+                                     [(ngModel)]="politic.ibge_code"
+                                     name="ibge_code"
+                                     [value]="politic.ibge_code">
+                              <span class="highlight"></span>
+                              <span class="bar"></span>
+                              <label>Codigo IBGE</label>
+                            </div>
+                          </div>
+
+                          <div class="col-md-4">
+                            <div class="group">
+                              <div class="input-group">
+                                <select name="uf" [(ngModel)]="politic.uf" class="form-control input-material">
+                                  <option *ngFor="let state of states" [value]="state.id"> {{state.uf}}</option>
+                                </select>
+                              </div>
+                              <span class="highlight"></span>
+                              <span class="bar"></span>
+                              <label>UF</label>
+                            </div>
+                          </div>
+                        </div>
+
+                        <div class="row">
+
+                          <div class="col-md-4">
+                            <div class="group">
+                              <select name="city" [(ngModel)]="politic.city" class="form-control input-material">
+                                <option *ngFor="let city of cities" [value]="city.id"> {{city.cidade}}</option>
+                              </select>
+                              <span class="highlight"></span>
+                              <span class="bar"></span>
+                              <label>Cidade</label>
+                            </div>
+                          </div>
+
+                          <div class="col-md-4">
+                            <div class="input-group">
+                              <input type="text"
+                                     [(ngModel)]="politic.country"
+                                     name="country"
+                                     [value]="politic.country">
+                              <span class="highlight"></span>
+                              <span class="bar"></span>
+                              <label>Pais</label>
+                            </div>
+                          </div>
+
+                          <div class="col-md-4">
+                            <div class="group">
+                              <input type="text"
+                                     [(ngModel)]="politic.created_by"
+                                     name="created_by">
+                              <span class="highlight"></span>
+                              <span class="bar"></span>
+                              <label>Criado por</label>
+                            </div>
+                          </div>
+
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-md-12">
+              <div class="card">
+                <div id="biography" data-children=".biographyData">
+                  <div class="biographyData">
+                    <div class="card-header bg-info text-center">
+                      <a data-toggle="collapse" data-parent="#accordion_access"
+                         href="#accordion_biography"
+                         aria-expanded="true" aria-controls="accordion_biography">
+                        Biografia
+                      </a>
+                    </div>
+                    <div id="accordion_biography" class="collapse show" role="tabpanel">
+                      <div class="card-body">
+                        <div class="row">
+
+
+                          <div class="col-md-12">
+                            <div class="group">
+                                                            <textarea
+                                                                    [(ngModel)]="politic.biograph"
+                                                                    name="biograph"
+                                                                    rows="20"
+                                                                    style="width:100%"
+                                                                    [value]="politic.biograph">
+                                                            </textarea>
+                              <span class="highlight"></span>
+                              <span class="bar"></span>
+                              <label>Biografia</label>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+
+        </div>
+        <div class="form-actions">
+          <button type="submit" class="btn blue" [disabled]="formPolitic.form.invalid">Cadastrar</button>
+          <button type="reset" class="btn red">Limpar</button>
+        </div>
+      </form>
+
+    </div>
+  </div>
+</div>

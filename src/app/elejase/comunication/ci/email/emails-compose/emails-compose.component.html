@@ -1,0 +1,132 @@
+<a id="button-for-compose-mail" class="btn btn-primary" onclick="hideDialog()">Escrever Email</a>
+
+
+
+<div class="msg-wrapper">
+    <div class="msg-compose-container">
+        <div id="msg-box" class="row">
+            <div class="empty-cell"></div>
+        </div>
+    </div>
+</div>
+<div class="template">
+    <div class="cell">
+        <div class="wrap">
+            <div class="msg-compose">
+                <div class="msg-compose-wrapper">
+                    <div class="msg-title-bar">
+                        <div class="icon left">
+                            <i class="fa fa-envelope"></i>
+                        </div>
+                        <div class="compose-actions right">
+                            <a class="minimize">
+                                <i class="fa fa-minus"></i>
+                            </a>
+                            <a href="#" class="close">
+                                <i class="fa fa-times"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <form #formMail="ngForm" role="form" (submit)="send()">
+                        <div class="msg-recipients">
+                            <div class="to-list">
+                                <input type="text" placeholder="Para"/>
+                                <span class="arrow"></span>
+                            </div>
+
+                            <div class="cc-list collapse">
+                                <input type="text" placeholder="De"/>
+                            </div>
+
+                            <div class="cc-list collapse">
+                                <input type="text" placeholder="cc"/>
+                            </div>
+
+                            <div class="bcc-list collapse">
+                                <input type="text" placeholder="Bcc"/>
+                            </div>
+                        </div>
+                        <div class="msg-subject">
+                            <input type="text" placeholder="Assunto"/>
+                        </div>
+                        <div class="msg-body">
+                            <textarea placeholder="Sua mensagem aqui"></textarea>
+                        </div>
+                        <div class="msg-footer">
+                            <div class="left">
+
+                                <!--<a type="submit" href="#" class="send-btn">Enviar</a>-->
+                                <button class="send-btn" (click)="send(formMail)">Enviar</button>
+                                <a href="#">
+                                    <i class="fa fa-paperclip"></i>
+                                </a>
+                                <a href="#" class="font"></a>
+                            </div>
+
+                            <div class="right">
+                                <a href="#">
+                                    <i class="fa fa-trash"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!--compose alternative-->
+<div id="compose-mail-container">
+    <div id="compose-mail" class="hidden">
+        <form (submit)="send()">
+            <fieldset>
+                <label for="to">Para</label>
+                <input type="email" id="to" [(ngModel)]="mail.to" name="to">
+                <label for="from">De</label>
+                <input type="email" id="from" [(ngModel)]="mail.from" name="from">
+            </fieldset>
+            <fieldset>
+                <label for="content">Conteudo</label>
+                <textarea name="content" id="content" [(ngModel)]="mail.content"></textarea>
+            </fieldset>
+            <fieldset>
+                <input id="send-button" type="submit" class="btn btn-primary" value="Enviar">
+            </fieldset>
+        </form>
+    </div>
+</div>

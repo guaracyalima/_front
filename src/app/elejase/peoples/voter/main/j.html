@@ -1,0 +1,62 @@
+<header class="page-header">
+    <div class="container-fluid">
+
+        <h2 class="no-margin-bottom text-center">
+            {{title}}
+        </h2>
+
+        <span>
+      <a routerLink="/voters/new" class="btn btn-primary">
+        <i class="fa fa-plus"></i>
+        Adicionar
+      </a>
+    </span>
+    </div>
+</header>
+<section class="tables">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-4" *ngFor="let voter of voters">
+                <div class="card">
+          <span *ngIf="voter.photo === ''">
+            <img class="card-img-top" src="https://s3-sa-east-1.amazonaws.com/eleja-se.medias3/profile/default.png" alt="Card image cap">
+          </span>
+                    <span class="text-center">
+            <img class="card-img-top" src="{{voter.photo}}" width="150" height="150" class="center-block image-responsive" alt="Card image cap">
+          </span>
+
+                    <div class="card-block">
+                        <h4 class="card-title text-center">
+                            <a routerLink="/voters/{{voter.id}}">{{voter.name}}</a>
+                        </h4>
+                        <p class="card-text">
+                            <span></span>
+                            Statu: {{voter.genre}}
+                        </p>
+                    </div>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item">
+                            E-mail: {{voter.genre}}
+                        </li>
+                        <li class="list-group-item">
+                            Subordinação: {{voter.observations}}
+                        </li>
+                        <li class="list-group-item">
+                            Endereço: {{voter.address_id}}
+                        </li>
+
+                        <li class="list-group-item">
+                            Cadastrado por : {{voter.created_by}}
+                        </li>
+                    </ul>
+                    <div class="card-block">
+                        <a routerLink="/voters/{{voter.id}}/edit" class="btn btn-primary">Editar</a>
+                        <a
+                                (click)="delete(voter.id)" class="card-link">Excluir
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

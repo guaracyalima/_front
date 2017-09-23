@@ -1,0 +1,84 @@
+<div class="row">
+    <div class="col-md-12">
+        <div class="portlet light">
+            <div class="portlet-title">
+                <div class="caption">
+                    <i class="fa fa-cogs font-green-sharp"></i>
+                    <span class="caption-subject font-green-sharp bold uppercase">Editar candidado</span>
+                </div>
+            </div>
+            <div class="portlet-body form">
+                <br/>
+                <form role="form" (submit)="save(politic.id)">
+                    <div class="form-body">
+
+                        <div class="col col-md-6">
+                            <div class="form-group">
+                                <label>Nome</label>
+                                <div class="input-group">
+                  <span class="input-group-addon input-circle-left">
+                    <i class="fa fa-user" aria-hidden="true"></i>
+                  </span>
+                                    <input type="text" [(ngModel)]="politic.name" name="name" class="form-control input-circle-right" placeholder="Nome completo">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label>Nome Politico</label>
+                                <div class="input-group">
+                  <span class="input-group-addon input-circle-left">
+                    <i class="fa fa-user" aria-hidden="true"></i>
+                  </span>
+                                    <input type="text" [(ngModel)]="politic.name_political" name="name_political" class="form-control input-circle-right" placeholder="Nome de campanha">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label>E-mail</label>
+                                <div class="input-group">
+                  <span class="input-group-addon input-circle-left">
+                    <i class="fa fa-envelope"></i>
+                  </span>
+                                    <input type="email" [(ngModel)]="politic.email" name="email" class="form-control input-circle-right" placeholder="Email">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col col-md-6">
+                            <div class="form-group">
+                                <label>Telefone</label>
+                                <div class="input-group">
+                  <span class="input-group-addon input-circle-left">
+                    <i class="fa fa-phone" aria-hidden="true"></i>
+                  </span>
+                                    <input type="text" [(ngModel)]="politic.telephone" name="telephone" class="form-control input-circle-right" placeholder="(00) 0 0000-0000">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label>Endereço</label>
+                                <div class="input-group">
+                  <span class="input-group-addon input-circle-left">
+                    <i class="fa fa-map" aria-hidden="true"></i>
+                  </span>
+                                    <input type="text" [(ngModel)]="politic.address" name="address" class="form-control input-circle-right" placeholder="Endereço">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label>Plano</label>
+                                <div class="input-group">
+                  <span class="input-group-addon input-circle-left">
+                    <i class="fa fa-map-marker" aria-hidden="true"></i>
+                  </span>
+                                    <input type="text" [(ngModel)]="politic.plan_id" name="plan_id" class="form-control input-circle-right" placeholder="00000-000">
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="form-actions">
+                        <button type="submit" class="btn blue">Altera</button>
+                        <a [routerLink]="['/politics/' + politic.id]" class="btn default">Voltar</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

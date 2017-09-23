@@ -1,0 +1,39 @@
+<div fxLayout="column">
+    <div fxLayout="row" fxLayoutAlign="center center" style="margin: 0 0 24px;">
+    <md-card fxFlex>
+
+        <md-card-content fxLayout="column">
+            <h3>Cadastro de colaboradores</h3>
+
+            <div fxLayout="row">
+                <form #formPolitic="ngForm" role="form" (submit)="save()">
+                <div fxLayout="column" fxLayout.gt-md="row">
+                    <input mdInput [(ngModel)]="myInput" name="something">
+                    <md-input-container fxFlex>
+                        <input
+                               mdInput
+                               [(ngModel)]="rg"
+                               name="something"
+                               placeholder="RG">
+                        <span md-prefix>
+                            <md-icon>place</md-icon>
+                        </span>
+                    </md-input-container>
+                    <md-input-container fxFlex>
+                        <input mdInput
+                               placeholder="City">
+                        <span md-prefix><md-icon>location_city</md-icon></span>
+                    </md-input-container>
+                    <md-input-container fxFlex>
+                        <input mdInput
+                               placeholder="Country">
+                        <span md-suffix><md-icon>local_airport</md-icon></span>
+                    </md-input-container>
+                </div>
+                </form>
+            </div>
+
+        </md-card-content>
+    </md-card>
+</div>
+</div>

@@ -1,0 +1,15 @@
+<nav aria-label="Page navigation example">
+    <ul class="pagination text-center">
+        <li
+           class="page-item"
+           [ngClass]="{'active': page == activePage}"
+           *ngFor="let page of pages">
+
+            <a (click)="changePage(page)" class="page-link">
+                {{page}}
+            </a>
+
+
+        </li>
+    </ul>
+</nav>
