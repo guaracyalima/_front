@@ -23,6 +23,7 @@ export class ContributorsComponent implements OnInit {
             .list()
             .then((res) => {
                 this.colaborators = res;
+                console.log(this.colaborators);
             })
     }
 

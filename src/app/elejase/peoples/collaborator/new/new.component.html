@@ -7,29 +7,134 @@
 
             <div fxLayout="row">
                 <form #formPolitic="ngForm" role="form" (submit)="save()">
-                <div fxLayout="column" fxLayout.gt-md="row">
-                    <input mdInput [(ngModel)]="myInput" name="something">
+
+                    <div fxLayout="column" fxLayout.gt-md="row">
+                    <md-input-container fxFlex>
+                        <input mdInput
+                               [(ngModel)]="name"
+                               name="name"
+                               placeholder="Nome">
+                    </md-input-container>
+
+                    <md-input-container fxFlex>
+                        <input mdInput
+                               [(ngModel)]="last_name"
+                               name="last_name"
+                               placeholder="Sobrenome">
+                    </md-input-container>
+
+                    <md-input-container fxFlex>
+                        <input mdInput
+                               [(ngModel)]="nickname"
+                               name="nickname"
+                               placeholder="Apelido">
+                    </md-input-container>
+
                     <md-input-container fxFlex>
                         <input
                                mdInput
                                [(ngModel)]="rg"
-                               name="something"
+                               name="rg"
                                placeholder="RG">
-                        <span md-prefix>
-                            <md-icon>place</md-icon>
-                        </span>
                     </md-input-container>
                     <md-input-container fxFlex>
                         <input mdInput
-                               placeholder="City">
-                        <span md-prefix><md-icon>location_city</md-icon></span>
+                               [(ngModel)]="cpf"
+                               name="cpf"
+                               placeholder="CPF">
                     </md-input-container>
-                    <md-input-container fxFlex>
-                        <input mdInput
-                               placeholder="Country">
-                        <span md-suffix><md-icon>local_airport</md-icon></span>
-                    </md-input-container>
+
+
+
                 </div>
+
+                    <div fxLayout="column" fxLayout.gt-md="row">
+                        <md-input-container fxFlex>
+                            <input mdInput
+                                   [(ngModel)]="genre"
+                                   name="genre"
+                                   placeholder="Genero">
+                        </md-input-container>
+
+                        <md-input-container fxFlex>
+                            <input mdInput
+                                   type="date"
+                                   [(ngModel)]="birth"
+                                   name="birth"
+                                   placeholder="Nascimento">
+                        </md-input-container>
+
+                        <md-input-container fxFlex>
+                            <input mdInput
+                                   [(ngModel)]="voter_title"
+                                   name="voter_title"
+                                   placeholder="Titulo de eleitor">
+                        </md-input-container>
+
+                        <md-input-container fxFlex>
+                            <input mdInput
+                                   [(ngModel)]="zone_id"
+                                   name="zone_id"
+                                   placeholder="Zona eleitoral">
+                        </md-input-container>
+
+                        <md-input-container fxFlex>
+                            <input mdInput
+                                   [(ngModel)]="session_id"
+                                   name="session_id"
+                                   placeholder="Seção eleitoral">
+                        </md-input-container>
+                    </div>
+
+                    <div fxLayout="column" fxLayout.gt-md="row">
+
+
+                        <md-input-container fxFlex>
+                            <input mdInput
+                                   [(ngModel)]="address"
+                                   name="address"
+                                   placeholder="Endereço">
+                        </md-input-container>
+
+                        <md-input-container fxFlex>
+                            <input mdInput
+                                   [(ngModel)]="stret"
+                                   name="stret"
+                                   placeholder="Rua">
+                        </md-input-container>
+
+                        <md-input-container fxFlex>
+                            <input mdInput
+                                   [(ngModel)]="neighborhood"
+                                   name="neighborhood"
+                                   placeholder="Bairro">
+                        </md-input-container>
+
+                        <md-input-container fxFlex>
+                            <input mdInput
+                                   [(ngModel)]="cep"
+                                   name="cep"
+                                   placeholder="CEP">
+                        </md-input-container>
+
+                        <md-input-container fxFlex>
+                            <input mdInput
+                                   [(ngModel)]="ibge_code"
+                                   name="ibge_code"
+                                   placeholder="Codigo IBGE">
+                        </md-input-container>
+                        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label getmdl-select getmdl-select__fullwidth">
+                            <input class="mdl-textfield__input" type="text" id="sample1" value="Belarus" readonly tabIndex="-1">
+                            <label for="sample1" class="mdl-textfield__label">Country</label>
+                            <ul for="sample1" class="mdl-menu mdl-menu--bottom-left mdl-js-menu">
+                                <li class="mdl-menu__item">Germany</li>
+                                <li class="mdl-menu__item">Belarus</li>
+                                <li class="mdl-menu__item">Russia</li>
+                            </ul>
+                        </div>
+
+
+                    </div>
                 </form>
             </div>
 
